@@ -1,0 +1,12 @@
+%YAML 1.2
+---
+launch:
+  - node:
+      pkg: "robot_bringup"
+      exec: "subscriber"
+      name: "subscriber"
+
+  - node:
+      pkg: "robot_core"
+      exec: "publisher"
+      name: "publisher"
