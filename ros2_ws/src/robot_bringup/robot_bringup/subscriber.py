@@ -3,7 +3,7 @@ from rclpy.node import Node
 
 from geometry_msgs.msg import Twist
 
-class Subsriber(Node):
+class Subscriber(Node):
 
     def __init__(self):
         super().__init__('subscriber')
