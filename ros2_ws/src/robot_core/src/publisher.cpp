@@ -11,7 +11,7 @@ class Publisher : public rclcpp::Node
 {
 public:
     Publisher()
-    : Node("publisher"), count_(0)
+    : Node("publisher")
     {
         publisher_ = this->create_publisher<geometry_msgs::msg::Twist>("/test_cmd_vel", 10);
         auto timer_callback = [this]() -> void {
@@ -27,7 +27,6 @@ public:
 private:
     rclcpp::TimerBase::SharedPtr timer_;
     rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr publisher_;
-    size_t count_;
 };
 
 int main(int argc, char * argv[])

@@ -15,12 +15,12 @@ class Subscriber(Node):
         self.subscription  # prevent unused variable warning
 
     def listener_callback(self, msg: Twist):
-        self.get_logger().info('I heard: "%s"' % msg)
+        self.get_logger().info('Angular Z: "%s"; Linear X: "%s"' % (msg.angular.z, msg.linear.x))
 
 def main(args=None):
     rclpy.init(args=args)
 
-    subscriber = Subsriber()
+    subscriber = Subscriber()
 
     rclpy.spin(subscriber)
 
