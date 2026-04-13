@@ -1,6 +1,6 @@
 # Phase 0 Tooling & Architecture Foundations
 
-## Step 0.1 - ROS2 as a Distributed Graph
+## Step 0.1
 
 ### Action Items:
 1. Creating packages under `ros2_ws/src/`:
@@ -21,3 +21,28 @@
     - [robot_core](/ros2_ws/src/robot_core/src/publisher.cpp)
 - Launch file:
     - [robot_bringup/launch/launch.yaml](/ros2_ws/src/robot_bringup/launch/launch.yaml)
+
+## Step 0.2
+### Notes
+1. DDS-based architecture:
+    - Decentralized discovery: no central master node
+    - Transport abstraction: UDP, multicast, shared memory, etc.
+    - QoS policies for reliability, durability, etc.
+    - Real-time capabilities
+    - Cross-vendor interoperability
+2. Communication models:
+    - Topic: asynchronous, many-to-many, no guarantee anyone is listening, continuous data stream
+        - used for: sensor streams, control commands, state estimates
+    - Service: synchronous request-response, blocking, short-lived
+        - used for: configuration, queries, discrete actions
+    - Action: goal request (async), feedback (topic), result (future-like)
+        - used for: long-running tasks, preemptible operations with progress tracking
+    - Examples:
+
+        | Function         | Correct Model                            | Why                                       |
+        | ---------------- | ---------------------------------------- | ----------------------------------------- |
+        | Wheel odometry   | Topic                                    | Continuous stream, many consumers         |
+        | Reset odometry   | Service                                  | Discrete state change                     |
+        | Navigate to goal | Action                                   | Long-running, feedback, cancelable        |
+        | Emergency stop   | Topic                                    | Broadcast, low-latency, safety-critical   |
+        | Battery query    | Service *(or topic depending on design)* | On-demand query OR periodic status stream |
