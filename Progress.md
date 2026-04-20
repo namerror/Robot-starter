@@ -21,5 +21,11 @@
     - [x] Writing a simple publisher and subscriber (Python) [see docs](https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html)
     - [ ] Writing a simple service and client (C++) [see docs](https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Service-And-Client.html)
     - [ ] Writing a simple service and client (Python) [see docs](https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.html)
-## Next Steps
+- [ ] Read ROS2 documentation: Intermediate Concepts
+    - [x] Understanding QoS settings [see docs](https://docs.ros.org/en/jazzy/Concepts/Intermediate/About-Quality-of-Service-Settings.html)
 - [ ] Phase 0:
+    - [x] Step 0.1: Create basic publisher and subscriber packages, and a launch file to run them together.
+    - [x] Step 0.2: Understand DDS architecture and communication models (topics, services, actions).
+    - [ ] Step 0.3: Design QoS settings for the `/cmd_vel` topic, considering reliability, latency, and failure modes.
+
+## Next Steps
